@@ -1,0 +1,20 @@
+{
+  "name": "dialog",
+  "version": "1.0.0",
+  "description": "弹出确认框",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.oschina.net/ireadercity/dialog.git"
+  },
+  "author": "川少",
+  "devDependencies": {
+    "rollup": "^0.41.4"
+  }
+}
