@@ -3,18 +3,18 @@
 * * *
 * * *
 
-#### 方法说明
+#### 方法一览
 *   customs (自定义对话框)
 *   confirm (弹出确定取消框)
 *   alert   (弹出确认框)
 <br>
 
 ***
-***
 
-### 代码示例参数说明
+## 代码示例参数说明
 
-#####  初始化方法
+###  初始实例化方法 new Modal();
+
 ```javascript
 //引入文件
 import Modal from 'dialog' ;
@@ -36,6 +36,19 @@ let dialog = new Modal( {
         } ]
     }
 } );
+```
+#### 实例化参数配置说明
+
+| 属性名  | 参数说明 | 值类型 |  是否必须 | 默认值 |
+| ---------- | -----------| ---------- | ----------- | -----------|
+| theme   | 可选的主题类型，目前共2种系统主题（refreshing || 1（清爽主题）& iosTheme || 2（仿ios主题））\| String&Number   | 否 | refreshing |
+| clickMaskCloseWindow | 点击背景区域是否可以关闭对话框 | Boolean  | 否 | false & true  | false |
+| isOpenAnimation   | 是否开启对话框出现时的动画 | Boolean  | 否 | false & true  | false |
+
+
+
+
+
 
 
 
