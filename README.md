@@ -66,12 +66,12 @@ let dialog = new Modal( {
 >| footer | 页脚区域样式 | String |
 >| buttons | 页脚里面按钮的样式(具体参数详见下表) | Array |
 
->##### buttons  自定义按钮的样式(可以有多个按钮)，每个按钮为一个对象 <br>，每个对象的顺序会影响最终渲染时的排列,每个属性名需对应调用时设置buttons属性的值的key一致
+##### customTheme.buttons  自定义按钮的样式(可以有多个按钮)，每个按钮为一个对象 ，每个对象的顺序会影响最终渲染时的排列,每个属性名需对应调用时设置buttons属性的值的key一致
 
 确定按钮对象参数值见下表
->>| 参数值  | 说明 |
+>>| 参数值  | 说明 | 值类型 |
 >>| ---------- | -----------|
->>| cancel   | 确定按钮样式（默认确定按钮key为cancel）  |
+>>| cancel   | 确定按钮样式（默认确定按钮key为cancel）  | String |
 
 取消按钮对象参数值见下表
 >>| 参数值  | 说明 |
@@ -85,6 +85,65 @@ let dialog = new Modal( {
 
 
 ***
+
+
+###  自定义对话框调用说明
+
+```javascript
+dialog.customs( {
+    title: '标题',
+    content: '你确定这样做吗？',
+    hideCloseBtn: false,
+    buttons: {
+        ok: {
+            text: '确定',
+            callback: ( el ) => {
+                console.log( '确定' );
+                return true;
+            },
+        },
+        xxx: {
+            text: '查看文章',
+            callback: () => {
+                console.log( '文章' );
+                return true;
+            },
+        },
+        cancel: {
+            text: '取消',
+        }
+    }
+} )
+```
+
+#### 自定义对话框参数配置说明
+
+| 属性名  | 参数说明 | 值类型 |  是否必须 | 默认值 |
+| ---------- | -----------| ---------- | ----------- | -----------|
+| title   | 显示在头部的标题（不提供该参数将不会显示头部HTML元素） | String | 否 | null |
+| content   | 显示在内容区的正文 | String | 是 | null |
+| hideCloseBtn   | 是否隐藏取消按钮 | Boolean | 否 | false |
+| buttons   | 按钮事件配置(详细配置见下表) | Object | 是 | null |
+
+***
+
+>##### buttons  按钮对象参数(key,value)配置
+>| 属性  | 说明 | 值类型 |
+>| ---------- | -----------|
+>| ok  |  确定按钮属性(具体值详见下表，所有属性共有该值，当值为一个方法的时候直接设置为点击该按钮的回调方法,默认文本为‘确定’)  | Object & Function |
+>| xxx  |  自定义按钮属性  | Object |
+>| cancel  |  取消按钮属性(当值为一个方法的时候直接设置为点击该按钮的回调方法,默认文本为‘取消’)  | Object  & Function  |
+
+
+##### buttons['ok']  按钮对象具体属性值(注意：确定按钮需return true 可关闭对话框，或者手动removeChild )
+>>| 属性  | 说明 | 值类型 | 默认值 | 是否携带参数 |
+>>| ---------- | -----------|
+>>| text  |  按钮显示文本  | String | 确定  |
+>>| callback  |  点击该按钮执行的方法  | Function | null | element（对话框的最外层的DOM节点） |
+
+
+
+
 
 
 
