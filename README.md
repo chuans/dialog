@@ -41,14 +41,17 @@ let dialog = new Modal( {
 
 | 属性名  | 参数说明 | 值类型 |  是否必须 | 默认值 |
 | ---------- | -----------| ---------- | ----------- | -----------|
-| theme   | 可选的主题类型，目前共2种系统主题（refreshing || 1（清爽主题）& iosTheme || 2（仿ios主题））\| String&Number   | 否 | refreshing |
-| clickMaskCloseWindow | 点击背景区域是否可以关闭对话框 | Boolean  | 否 | false & true  | false |
-| isOpenAnimation   | 是否开启对话框出现时的动画 | Boolean  | 否 | false & true  | false |
+| theme   | 可选的主题类型(详见下表) | String & Number   | 否 | refreshing |
+| clickMaskCloseWindow | 点击背景区域是否可以关闭对话框 | Boolean  | 否  | false |
+| isOpenAnimation   | 是否开启对话框出现时的动画 | Boolean  | 否   | false |
+| customTheme   | 自定义主题的样式(如果设置了自定义主题，则会忽略主题类型的设置) | Object  | 否   | null |
 
 
-
-
-
+>##### theme  可选主题类型：refreshing  1（清爽主题）& iosTheme || 2（仿ios主题）
+>| 参数值  | 说明 |
+>| ---------- | -----------|
+>| refreshing  或者 1   |  使用清爽主题  |
+>| iosTheme  或者 2   |  使用仿IOS主题  |
 
 
 
