@@ -90,6 +90,7 @@ let dialog = new Modal( {
 ###  自定义对话框调用说明
 
 ```javascript
+//弹出自定义对话框
 dialog.customs( {
     title: '标题',
     content: '你确定这样做吗？',
@@ -114,7 +115,7 @@ dialog.customs( {
         }
     }
 } )
-
+//弹出确认取消框
 dialog.confirm( {
     title: '请告诉我',
     content: '你是逗比吗？',
@@ -132,6 +133,7 @@ dialog.confirm( {
     }
 } )
 
+//弹出确认框
 dialog.alert( {
     content: '你确定这样做吗？',
     buttons: {
