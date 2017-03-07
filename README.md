@@ -64,13 +64,13 @@ let dialog = new Modal( {
 >| header | 标题部分样式 | String |
 >| body | 具体内容区样式 | String |
 >| footer | 页脚区域样式 | String |
->| buttons | 页脚里面按钮的样式(具体参数详见下表) | Array |
+>| buttons | 页脚里面按钮的样式(具体参数详见下表 -->buttons<-- ) | Array |
 
-##### customTheme.buttons  自定义按钮的样式(可以有多个按钮)，每个按钮为一个对象 ，每个对象的顺序会影响最终渲染时的排列,每个属性名需对应调用时设置buttons属性的值的key一致
+##### -->buttons<-- customTheme.buttons  自定义按钮的样式(可以有多个按钮)，每个按钮为一个对象 ，每个对象的顺序会影响最终渲染时的排列,每个属性名需对应调用时设置buttons属性的值的key一致
 
 确定按钮对象参数值见下表
 >>| 参数值  | 说明 | 值类型 |
->>| ---------- | -----------|
+>>| ---------- | -----------| -----------|
 >>| cancel   | 确定按钮样式（默认确定按钮key为cancel）  | String |
 
 取消按钮对象参数值见下表
@@ -114,20 +114,46 @@ dialog.customs( {
         }
     }
 } )
+
+dialog.confirm( {
+    title: '请告诉我',
+    content: '你是逗比吗？',
+    buttons: {
+        ok: {
+            text : '是' ,
+            callback: ( el ) => {
+                console.log( '是' );
+                return true;
+            },
+        },
+        cancel: {
+            text : '不是' ,
+        }
+    }
+} )
+
+dialog.alert( {
+    content: '你确定这样做吗？',
+    buttons: {
+        ok(){
+            return true;
+        },
+    }
+} )
 ```
 
-#### 自定义对话框参数配置说明
+#### 自定义对话框参数配置说明(所有对话框基本属性值一样)
 
 | 属性名  | 参数说明 | 值类型 |  是否必须 | 默认值 |
 | ---------- | -----------| ---------- | ----------- | -----------|
 | title   | 显示在头部的标题（不提供该参数将不会显示头部HTML元素） | String | 否 | null |
 | content   | 显示在内容区的正文 | String | 是 | null |
 | hideCloseBtn   | 是否隐藏取消按钮 | Boolean | 否 | false |
-| buttons   | 按钮事件配置(详细配置见下表) | Object | 是 | null |
+| buttons   | 按钮事件配置(详细配置见下表 -->buttons<--) | Object | 是 | null |
 
 ***
 
->##### buttons  按钮对象参数(key,value)配置
+##### -->buttons<-- buttons  按钮对象参数(key,value)配置
 >| 属性  | 说明 | 值类型 |
 >| ---------- | -----------| -----------|
 >| ok  |  确定按钮属性(具体值详见下表，所有属性共有该值，当值为一个方法的时候直接设置为点击该按钮的回调方法,默认文本为‘确定’)  | Object & Function |
@@ -142,7 +168,7 @@ dialog.customs( {
 >>| callback  |  点击该按钮执行的方法  | Function | null | element（对话框的最外层的DOM节点） |
 
 
-
+##### alert  弹出确认框应该只有一个确认按钮
 
 
 
