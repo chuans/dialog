@@ -1,13 +1,14 @@
 # dialog对话框 #
 ### 多功能弹出对话框小插件
 * * *
-* * *
+
+####安装方法
 
 ```javascript
 /* 切换当前npm指向 shuxiang http://192.168.1.151:4873/*/
 nrm use shuxiang  
 
-/* 安装 */
+/* 安装npm */
 npm install dialog --save-dev
 
 ```
