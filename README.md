@@ -3,6 +3,15 @@
 * * *
 * * *
 
+```javascript
+/* 切换当前npm指向 shuxiang http://192.168.1.151:4873/*/
+nrm use shuxiang  
+
+/* 安装 */
+npm install dialog --save-dev
+
+```
+
 #### 方法一览
 *   customs (自定义对话框)
 *   confirm (弹出确定取消框)
