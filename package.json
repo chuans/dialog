@@ -7,7 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "dev": ""
+    "dev": "rollup -w -c rollup.config.dev.js",
+    "build": "node rollup.config.build.js",
+    "test": "mocha  test/dialog.text.js --recursive --reporter tap --growl"
   },
   "repository": {
     "type": "git",
@@ -15,6 +17,17 @@
   },
   "author": "川少",
   "devDependencies": {
-    "rollup": "^0.41.4"
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "casperjs": "^1.1.3",
+    "mocha": "^3.2.0",
+    "rollup": "^0.41.4",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-uglify": "^1.0.1",
+    "rollup-watch": "^3.2.2"
+  },
+  "dependencies": {
+    "element-ui": "^1.1.6"
   }
 }

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Title</title>
+		<style>
+
+		</style>
+	</head>
+	<body>
+
+		<button onclick="showCustom()">custom</button>
+		<br/>
+		<button onclick="showConfirm()">confirm</button>
+		<br/>
+		<button onclick="showAlert()">alert</button>
+
+
+		<script src="../dist/dialog.js"></script>
+
+
+		<script>
+            let dialog = new Modal( {
+                clickMaskCloseWindow: true,
+                isOpenAnimation: false,
+				customTheme : {
+                    mask: 'background:rgba(0,0,0,.5);position:absolute;left:0;top:0;right:0;bottom:0;',
+                    box: "background: #ffffff;position: absolute;left: 50%;top: 50%;z-index: 1000;color: #808080;margin-top: -25%; margin-left: -40%;padding-top:20px;box-sizing:border-box;width:80%;border-radius:12px;-webkit-transform:scale(.01);transform:scale(.01);",
+                    header: 'height:30px;color:#000000;font-size:16px;line-height:30px;text-align:center;',
+                    body: 'width:100%;height:52px;padding-top:10px;box-sizing:border-box;line-height:20px;color:#232323;text-align:center;font-size:13px;padding:5px 25px;',
+                    footer: 'height:45px;overflow:hidden;color:#0275f6;text-align:center;border-top:1px solid #e2e2e2;box-shadow:0 1px 1px rgba(0,0,0,.02) inset;',
+                    buttons: [ {
+                        cancel: 'line-height:45px;display:inline-block;cursor:pointer;width:50%;border-right:1px solid #e2e2e2;box-sizing:border-box;'
+                    }, {
+                        ok: 'line-height:45px;display:inline-block;cursor:pointer;width:50%;'
+                    } ]
+                }
+            } );
+            const showCustom = () => {
+                dialog.customs( {
+                    title: '自定义',
+                    content: '你确定这样做吗？',
+                    hideCloseBtn: false,
+                    buttons: {
+                        ok: {
+                            text: '确定',
+                            callback: ( el ) => {
+                                console.log( '确定' );
+                                return true;
+                            },
+                        },
+                        show: {
+                            text: '查看文章',
+                            callback: () => {
+                                console.log( '文章' );
+                                return true;
+                            },
+                        },
+                        cancel: {
+                            text: '取消',
+                        }
+                    }
+                } )
+            };
+            const showConfirm = () => {
+                dialog.confirm( {
+                    title: '请告诉我',
+                    content: '你是逗比吗？',
+                    buttons: {
+                        ok: {
+                            text : '是' ,
+                            callback: ( el ) => {
+                                console.log( '是' );
+                                return true;
+                            },
+                        },
+                        cancel: {
+                            text : '不是' ,
+						}
+                    }
+                } )
+            };
+            const showAlert = () => {
+                dialog.alert( {
+                    content: '你确定这样做吗？',
+                    buttons: {
+                        ok(){
+							return true;
+                        },
+                    }
+                } )
+            };
+		</script>
+
+	</body>
+</html>
