@@ -2,7 +2,7 @@
   "name": "dialog",
   "version": "1.0.0",
   "description": "弹出确认框",
-  "main": "src/index.js",
+  "main": "dist/dialog.min.js",
   "directories": {
     "test": "test"
   },
